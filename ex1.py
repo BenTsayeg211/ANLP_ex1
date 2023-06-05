@@ -120,7 +120,7 @@ with open("res.txt",'w') as results, open("predictions.txt",'w') as p:
   results.write(f"train time,{total_time}\n")
   #write pred.txt
   tokenizer,pre_trained_model,trainer=fine_tuning_best()
-  # pre_trained_model.eval()
+  pre_trained_model.eval()
   start_time_pred=time()
   for sample in sst2['test']:
     tokenized = tokenizer(sample['sentence'], truncation=True, return_tensors='pt').to(device)
